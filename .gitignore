@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# 生产构建产物与本地数据
+data/
+
+# 环境变量(密钥不入库;.env.example 除外)
+.env
+.env.local
+.env.*.local
+
+# 个人壁纸(版权/商标原因不随仓库分发;本地自取放置 public/wallpaper.png 即可)
+public/wallpaper.png
+
+# misc
+*.log
+.DS_Store
+Thumbs.db
+*.tsbuildinfo

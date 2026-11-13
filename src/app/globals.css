@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* ===== 深海蓝主题 · DeepSeek 大小姐壁纸 ===== */
+
+html {
+  background: #0a1233;
+}
+
+body {
+  color: #1e2a4a;
+  font-family: -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 壁纸固定打底(不随内容滚动)。
+   public/wallpaper.png 不随仓库分发(版权原因):缺失时自动回退到深海蓝渐变 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    url("/wallpaper.png") center / cover no-repeat,
+    linear-gradient(150deg, #1a2a6b, #0a1233 55%, #14204f);
+  z-index: -2;
+}
+
+/* 深海蓝叠加层:轻微压暗 + 统一色温,保证毛玻璃卡片上的文字可读,同时不掩盖壁纸 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 85% 10%, rgba(77, 107, 254, 0.1), transparent 60%),
+    linear-gradient(155deg, rgba(8, 15, 46, 0.38), rgba(13, 24, 70, 0.52) 55%, rgba(8, 15, 46, 0.6));
+  z-index: -1;
+}
+
+/* 直接落在壁纸上的大标题 */
+.page-title {
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(8, 15, 46, 0.55);
+}
+
+/* 玻璃卡片(浅色内容面板) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px) saturate(1.35);
+  -webkit-backdrop-filter: blur(20px) saturate(1.35);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 10px 36px rgba(9, 18, 55, 0.22);
+}
+
+/* 玻璃面板(深色侧边栏) */
+.glass-nav {
+  background: rgba(10, 18, 51, 0.58);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  border-right: 1px solid rgba(120, 145, 255, 0.22);
+}
+
+/* 输入坞(面试页底部) */
+.glass-dock {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 40px rgba(9, 18, 55, 0.3);
+}
+
+/* 品牌渐变文字 */
+.brand-text {
+  background: linear-gradient(120deg, #9db4ff, #4d6bfe 55%, #8ea5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 细滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 145, 255, 0.35);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
